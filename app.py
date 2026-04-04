@@ -50,7 +50,8 @@ API_ENDPOINT = "/api/v2/cortex/analyst/message"
 FEEDBACK_API_ENDPOINT = "/api/v2/cortex/analyst/feedback"
 
 # Construct the Snowflake API host from the account identifier
-SNOWFLAKE_HOST = f"{SNOWFLAKE_ACCOUNT}.snowflakecomputing.com"
+# Snowflake URLs require underscores replaced with dashes for SSL cert validation
+SNOWFLAKE_HOST = f"{SNOWFLAKE_ACCOUNT.replace('_', '-').lower()}.snowflakecomputing.com"
 
 # ---------------------------------------------------------------------------
 # Custom CSS — Snowflake branding
