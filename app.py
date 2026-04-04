@@ -19,16 +19,25 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+def get_config(key: str, default: str = "") -> str:
+    """Read config from Streamlit secrets (cloud) or .env (local)."""
+    try:
+        return st.secrets[key]
+    except (KeyError, FileNotFoundError):
+        return os.getenv(key, default)
+
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-SNOWFLAKE_ACCOUNT = os.getenv("SNOWFLAKE_ACCOUNT")
-SNOWFLAKE_USER = os.getenv("SNOWFLAKE_USER")
-SNOWFLAKE_PASSWORD = os.getenv("SNOWFLAKE_PASSWORD")
-SNOWFLAKE_WAREHOUSE = os.getenv("SNOWFLAKE_WAREHOUSE", "CORTEX_ANALYST_WH")
-SNOWFLAKE_ROLE = os.getenv("SNOWFLAKE_ROLE", "CORTEX_USER_ROLE")
-SNOWFLAKE_DATABASE = os.getenv("SNOWFLAKE_DATABASE", "CORTEX_ANALYST_DEMO")
-SNOWFLAKE_SCHEMA = os.getenv("SNOWFLAKE_SCHEMA", "REVENUE_TIMESERIES")
+SNOWFLAKE_ACCOUNT = get_config("SNOWFLAKE_ACCOUNT")
+SNOWFLAKE_USER = get_config("SNOWFLAKE_USER")
+SNOWFLAKE_PASSWORD = get_config("SNOWFLAKE_PASSWORD")
+SNOWFLAKE_WAREHOUSE = get_config("SNOWFLAKE_WAREHOUSE", "CORTEX_ANALYST_WH")
+SNOWFLAKE_ROLE = get_config("SNOWFLAKE_ROLE", "CORTEX_USER_ROLE")
+SNOWFLAKE_DATABASE = get_config("SNOWFLAKE_DATABASE", "CORTEX_ANALYST_DEMO")
+SNOWFLAKE_SCHEMA = get_config("SNOWFLAKE_SCHEMA", "REVENUE_TIMESERIES")
 
 STAGE = "RAW_DATA"
 FILE = "revenue_timeseries.yaml"
