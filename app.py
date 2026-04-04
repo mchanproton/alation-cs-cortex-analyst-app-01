@@ -49,6 +49,9 @@ AVAILABLE_SEMANTIC_MODELS = [
 API_ENDPOINT = "/api/v2/cortex/analyst/message"
 FEEDBACK_API_ENDPOINT = "/api/v2/cortex/analyst/feedback"
 
+# Construct the Snowflake API host from the account identifier
+SNOWFLAKE_HOST = f"{SNOWFLAKE_ACCOUNT}.snowflakecomputing.com"
+
 # ---------------------------------------------------------------------------
 # Custom CSS — Snowflake branding
 # ---------------------------------------------------------------------------
@@ -286,7 +289,7 @@ def send_message() -> requests.Response:
         "stream": True,
     }
     resp = requests.post(
-        url=f"https://{conn.host}{API_ENDPOINT}",
+        url=f"https://{SNOWFLAKE_HOST}{API_ENDPOINT}",
         json=request_body,
         headers={
             "Authorization": f'Snowflake Token="{conn.rest.token}"',
@@ -356,7 +359,7 @@ def submit_feedback(
     """Submit feedback for a generated SQL query. Returns error message or None."""
     conn = get_snowflake_connection()
     resp = requests.post(
-        url=f"https://{conn.host}{FEEDBACK_API_ENDPOINT}",
+        url=f"https://{SNOWFLAKE_HOST}{FEEDBACK_API_ENDPOINT}",
         json={
             "request_id": request_id,
             "positive": positive,
