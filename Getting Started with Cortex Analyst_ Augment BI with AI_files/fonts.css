@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('/fonts/SourceCodePro-Regular.woff2') format('woff2'),
+    url('/fonts/SourceCodePro-Regular.woff') format('woff'), url('/fonts/SourceCodePro-Regular.ttf') format('truetype'),
+    url('/fonts/SourceCodePro-Regular.otf') format('opentype'),
+    url('/fonts/SourceCodePro-Regular.eot') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('/fonts/SourceCodePro-Italic.woff2') format('woff2'), url('/fonts/SourceCodePro-Italic.woff') format('woff'),
+    url('/fonts/SourceCodePro-Italic.ttf') format('truetype'), url('/fonts/SourceCodePro-Italic.otf') format('opentype'),
+    url('/fonts/SourceCodePro-Italic.eot') format('embedded-opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Texta;
+  src: url('/fonts/Texta.woff2') format('woff2'), url('/fonts/Texta.woff') format('woff'),
+    url('/fonts/Texta.ttf') format('truetype'), url('/fonts/Texta.otf') format('opentype'),
+    url('/fonts/Texta.eot') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Texta;
+  src: url('/fonts/Texta-Bold.woff2') format('woff2'), url('/fonts/Texta-Bold.woff') format('woff'),
+    url('/fonts/Texta-Bold.ttf') format('truetype'), url('/fonts/Texta-Bold.otf') format('opentype'),
+    url('/fonts/Texta-Bold.eot') format('embedded-opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Texta;
+  src: url('/fonts/Texta-Black.woff2') format('woff2'), url('/fonts/Texta-Black.woff') format('woff'),
+    url('/fonts/Texta-Black.ttf') format('truetype'), url('/fonts/Texta-Black.otf') format('opentype'),
+    url('/fonts/Texta-Black.eot') format('embedded-opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('/fonts/Lato-Regular.woff2') format('woff2'), url('/fonts/Lato-Regular.woff') format('woff'),
+    url('/fonts/Lato-Regular.ttf') format('truetype'), url('/fonts/Lato-Regular.otf') format('opentype'),
+    url('/fonts/Lato-Regular.eot') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('/fonts/Lato-Semibold.woff2') format('woff2'), url('/fonts/Lato-Semibold.woff') format('woff'),
+    url('/fonts/Lato-Semibold.ttf') format('truetype'), url('/fonts/Lato-Semibold.otf') format('opentype'),
+    url('/fonts/Lato-Semibold.eot') format('embedded-opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('/fonts/Lato-Bold.woff2') format('woff2'), url('/fonts/Lato-Bold.woff') format('woff'),
+    url('/fonts/Lato-Bold.ttf') format('truetype'), url('/fonts/Lato-Bold.otf') format('opentype'),
+    url('/fonts/Lato-Bold.eot') format('embedded-opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: NotoSansKR;
+  src: url('/fonts/NotoSansKR-Regular.woff2') format('woff2'), url('/fonts/NotoSansKR-Regular.woff') format('woff'),
+    url('/fonts/NotoSansKR-Regular.ttf') format('truetype'), url('/fonts/NotoSansKR-Regular.otf') format('opentype'),
+    url('/fonts/NotoSansKR-Regular.eot') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: NotoSansKR;
+  src: url('/fonts/NotoSansKR-Medium.woff2') format('woff2'), url('/fonts/NotoSansKR-Medium.woff') format('woff'),
+    url('/fonts/NotoSansKR-Medium.ttf') format('truetype'), url('/fonts/NotoSansKR-Medium.otf') format('opentype'),
+    url('/fonts/NotoSansKR-Medium.eot') format('embedded-opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: NotoSansKR;
+  src: url('/fonts/NotoSansKR-Bold.woff2') format('woff2'), url('/fonts/NotoSansKR-Bold.woff') format('woff'),
+    url('/fonts/NotoSansKR-Bold.ttf') format('truetype'), url('/fonts/NotoSansKR-Bold.otf') format('opentype'),
+    url('/fonts/NotoSansKR-Bold.eot') format('embedded-opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: NotoSansKR;
+  src: url('/fonts/NotoSansKR-Black.woff2') format('woff2'), url('/fonts/NotoSansKR-Black.woff') format('woff'),
+    url('/fonts/NotoSansKR-Black.ttf') format('truetype'), url('/fonts/NotoSansKR-Black.otf') format('opentype'),
+    url('/fonts/NotoSansKR-Black.eot') format('embedded-opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: MPLUS1p;
+  src: url('/fonts/MPLUS1p-Regular.woff2') format('woff2'), url('/fonts/MPLUS1p-Regular.woff') format('woff'),
+    url('/fonts/MPLUS1p-Regular.ttf') format('truetype'), url('/fonts/MPLUS1p-Regular.otf') format('opentype'),
+    url('/fonts/MPLUS1p-Regular.eot') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: MPLUS1p;
+  src: url('/fonts/MPLUS1p-Medium.woff2') format('woff2'), url('/fonts/MPLUS1p-Medium.woff') format('woff'),
+    url('/fonts/MPLUS1p-Medium.ttf') format('truetype'), url('/fonts/MPLUS1p-Medium.otf') format('opentype'),
+    url('/fonts/MPLUS1p-Medium.eot') format('embedded-opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: MPLUS1p;
+  src: url('/fonts/MPLUS1p-Bold.woff2') format('woff2'), url('/fonts/MPLUS1p-Bold.woff') format('woff'),
+    url('/fonts/MPLUS1p-Bold.ttf') format('truetype'), url('/fonts/MPLUS1p-Bold.otf') format('opentype'),
+    url('/fonts/MPLUS1p-Bold.eot') format('embedded-opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: MPLUS1p;
+  src: url('/fonts/MPLUS1p-ExtraBold.woff2') format('woff2'), url('/fonts/MPLUS1p-ExtraBold.woff') format('woff'),
+    url('/fonts/MPLUS1p-ExtraBold.ttf') format('truetype'), url('/fonts/MPLUS1p-ExtraBold.otf') format('opentype'),
+    url('/fonts/MPLUS1p-ExtraBold.eot') format('embedded-opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

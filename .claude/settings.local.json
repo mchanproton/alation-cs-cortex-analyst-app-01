@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp /tmp/sfguide-cortex-analyst/data/daily_revenue.csv /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/data/)",
+      "Bash(cp /tmp/sfguide-cortex-analyst/data/product.csv /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/data/)",
+      "Bash(cp /tmp/sfguide-cortex-analyst/data/region.csv /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/data/)",
+      "Bash(cp /tmp/sfguide-cortex-analyst/revenue_timeseries.yaml /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/semantic_models/)",
+      "Bash(wc -l /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/data/*.csv /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/semantic_models/*.yaml)",
+      "Bash(python3 -m venv venv)",
+      "Bash(source /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/venv/bin/activate)",
+      "Bash(pip install:*)"
+    ]
+  }
+}
