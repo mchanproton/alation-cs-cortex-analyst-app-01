@@ -8,7 +8,8 @@
       "Bash(wc -l /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/data/*.csv /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/semantic_models/*.yaml)",
       "Bash(python3 -m venv venv)",
       "Bash(source /Users/mendelsohn/Desktop/claude_code_snowflake_cortex_project/venv/bin/activate)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(gh auth:*)"
     ]
   }
 }
