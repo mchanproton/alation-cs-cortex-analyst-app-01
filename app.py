@@ -74,31 +74,9 @@ CUSTOM_CSS = """
         overflow: auto;
         position: relative;
     }
-    /* Visible drag handle on the right edge */
-    [data-testid="stSidebar"]::after {
-        content: "›";
-        position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 48px;
-        background: #29B5E8;
-        border-radius: 0 6px 6px 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 18px;
-        font-weight: 700;
-        cursor: col-resize;
-        z-index: 999;
-        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
-        pointer-events: none;
-    }
     /* Blue vertical line on sidebar right edge */
-    [data-testid="stSidebar"] > div:first-child {
-        border-right: 3px solid #29B5E8;
+    [data-testid="stSidebar"] > div {
+        border-right: 3px solid #29B5E8 !important;
     }
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
         color: #FFFFFF;
@@ -688,6 +666,34 @@ def load_yaml_content(model_path: str) -> str:
 def show_sidebar() -> None:
     """Render the sidebar with model selector, YAML viewer, and clear chat button."""
     with st.sidebar:
+        # Drag handle indicator on sidebar edge
+        st.markdown(
+            """
+            <div style="
+                position: fixed;
+                left: calc(var(--sidebar-width, 336px) - 2px);
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 999;
+                pointer-events: none;
+            ">
+                <div style="
+                    width: 22px;
+                    height: 52px;
+                    background: #29B5E8;
+                    border-radius: 0 8px 8px 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+                ">
+                    <span style="color: white; font-size: 16px; font-weight: 700;">&#8250;</span>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
         # Logo + branding header
         st.markdown(
             """
