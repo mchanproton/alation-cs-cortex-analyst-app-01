@@ -819,6 +819,12 @@ def show_sidebar() -> None:
                     font-size: 10px; color: rgba(255,255,255,0.3);
                     letter-spacing: 0.5px;
                 ">Powered by Snowflake Cortex</span>
+                <br>
+                <span style="
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 10px; color: rgba(255,255,255,0.3);
+                    letter-spacing: 0.5px;
+                ">Deployed by Mendelsohn Chan</span>
             </div>
             """,
             unsafe_allow_html=True,
