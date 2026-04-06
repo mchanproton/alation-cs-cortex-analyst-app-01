@@ -139,22 +139,26 @@ CUSTOM_CSS = """
         background-color: rgba(0,0,0,0.3) !important;
         border-radius: 6px;
     }
-    /* YAML viewer — GitHub Light theme (high specificity to override sidebar defaults) */
-    [data-testid="stSidebar"] pre.yaml-viewer,
-    pre.yaml-viewer {
-        background-color: #FFFFFF !important;
+    /* YAML viewer inside expander — GitHub Light theme */
+    [data-testid="stSidebar"] [data-testid="stExpander"] pre,
+    [data-testid="stSidebar"] [data-testid="stExpander"] code {
+        background-color: #F6F8FA !important;
         color: #24292e !important;
-        font-family: Consolas, 'Courier New', monospace !important;
-        font-size: 13px !important;
-        line-height: 1.5 !important;
-        padding: 16px !important;
         border-radius: 8px !important;
         border: 1px solid #e1e4e8 !important;
-        max-height: 500px !important;
-        overflow-y: auto !important;
-        white-space: pre !important;
-        tab-size: 2 !important;
     }
+    [data-testid="stSidebar"] [data-testid="stExpander"] code span {
+        color: inherit !important;
+    }
+    /* YAML token colors on light background */
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.key { color: #005cc5 !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.string { color: #032f62 !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.boolean { color: #d73a49 !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.number { color: #005cc5 !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.comment { color: #6a737d !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.punctuation { color: #24292e !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.atrule { color: #005cc5 !important; }
+    [data-testid="stSidebar"] [data-testid="stExpander"] .token.important { color: #d73a49 !important; }
 
     /* Snowflake accent on analyst chat bubbles */
     [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
@@ -736,20 +740,7 @@ def show_sidebar() -> None:
                     "selected_semantic_model_path", AVAILABLE_SEMANTIC_MODELS[0]
                 )
             )
-            import html as html_mod
-            escaped = html_mod.escape(yaml_content)
-            # Apply basic YAML syntax highlighting (GitHub Light colors)
-            import re as re_mod
-            # Highlight comments
-            escaped = re_mod.sub(r'(#.*)', r'<span style="color:#6a737d">\1</span>', escaped)
-            # Highlight keys (word followed by colon)
-            escaped = re_mod.sub(r'^(\s*)([\w_-]+)(:)', r'\1<span style="color:#005cc5">\2</span>\3', escaped, flags=re.MULTILINE)
-            # Highlight strings in quotes
-            escaped = re_mod.sub(r'(&quot;.*?&quot;|&#x27;.*?&#x27;)', r'<span style="color:#032f62">\1</span>', escaped)
-            # Highlight booleans and numbers
-            escaped = re_mod.sub(r':\s+(true|false)\b', r': <span style="color:#d73a49">\1</span>', escaped)
-            escaped = re_mod.sub(r':\s+(\d+\.?\d*)\b', r': <span style="color:#005cc5">\1</span>', escaped)
-            st.markdown(f'<pre class="yaml-viewer">{escaped}</pre>', unsafe_allow_html=True)
+            st.code(yaml_content, language="yaml")
 
         st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
 
