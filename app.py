@@ -65,13 +65,40 @@ CUSTOM_CSS = """
         font-family: Arial, Helvetica, sans-serif !important;
     }
 
-    /* Sidebar — modern dark theme */
+    /* Sidebar — modern dark theme with resize handle */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0D1B2A 0%, #11567F 100%);
         min-width: 280px;
         max-width: 1000px;
         resize: horizontal;
         overflow: auto;
+        position: relative;
+    }
+    /* Visible drag handle on the right edge */
+    [data-testid="stSidebar"]::after {
+        content: "›";
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 48px;
+        background: #29B5E8;
+        border-radius: 0 6px 6px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: col-resize;
+        z-index: 999;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+        pointer-events: none;
+    }
+    /* Blue vertical line on sidebar right edge */
+    [data-testid="stSidebar"] > div:first-child {
+        border-right: 3px solid #29B5E8;
     }
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
         color: #FFFFFF;
