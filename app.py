@@ -135,12 +135,13 @@ CUSTOM_CSS = """
         border: none !important;
         border-radius: 6px;
     }
-    [data-testid="stSidebar"] pre {
+    [data-testid="stSidebar"] pre:not(.yaml-viewer) {
         background-color: rgba(0,0,0,0.3) !important;
         border-radius: 6px;
     }
-    /* YAML viewer — GitHub Light theme */
-    .yaml-viewer {
+    /* YAML viewer — GitHub Light theme (high specificity to override sidebar defaults) */
+    [data-testid="stSidebar"] pre.yaml-viewer,
+    pre.yaml-viewer {
         background-color: #FFFFFF !important;
         color: #24292e !important;
         font-family: Consolas, 'Courier New', monospace !important;
