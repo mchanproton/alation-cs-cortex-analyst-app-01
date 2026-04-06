@@ -72,6 +72,21 @@ CUSTOM_CSS = """
         max-width: 1000px;
         resize: horizontal;
         overflow: auto;
+    }
+    /* Grip dots on sidebar right edge */
+    [data-testid="stSidebar"] > div:first-child::after {
+        content: "";
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 40px;
+        background-image: radial-gradient(circle, rgba(255,255,255,0.35) 1.5px, transparent 1.5px);
+        background-size: 6px 8px;
+        background-repeat: repeat-y;
+        cursor: col-resize;
+        z-index: 999;
         position: relative;
     }
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
