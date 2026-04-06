@@ -68,7 +68,7 @@ CUSTOM_CSS = """
     /* Sidebar — modern dark theme with resize handle */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0D1B2A 0%, #11567F 100%);
-        min-width: 280px;
+        min-width: 437px;
         max-width: 1000px;
         resize: horizontal;
         overflow: auto;
