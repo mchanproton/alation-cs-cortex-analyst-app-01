@@ -65,35 +65,29 @@ CUSTOM_CSS = """
         font-family: Arial, Helvetica, sans-serif !important;
     }
 
-    /* Hide native Streamlit sidebar collapse button */
-    [data-testid="stSidebar"] button[kind="header"] ,
-    [data-testid="collapsedControl"] {
-        display: none !important;
-    }
-    /* Sidebar — modern dark theme */
+    /* Sidebar — modern dark theme with resize handle */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0D1B2A 0%, #11567F 100%);
+        min-width: 500px;
         max-width: 1000px;
+        resize: horizontal;
         overflow: auto;
     }
-    /* Sidebar width toggle button */
-    .sidebar-toggle-btn button {
-        width: 36px !important;
-        height: 36px !important;
-        min-height: 36px !important;
-        padding: 0 !important;
-        border-radius: 8px !important;
-        background-color: rgba(255,255,255,0.15) !important;
-        border: 1px solid rgba(255,255,255,0.3) !important;
-        color: #FFFFFF !important;
-        font-size: 18px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    .sidebar-toggle-btn button:hover {
-        background-color: rgba(41,181,232,0.4) !important;
-        border-color: #29B5E8 !important;
+    /* Grip dots on sidebar right edge */
+    [data-testid="stSidebar"] > div:first-child::after {
+        content: "";
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 40px;
+        background-image: radial-gradient(circle, rgba(255,255,255,0.35) 1.5px, transparent 1.5px);
+        background-size: 6px 8px;
+        background-repeat: repeat-y;
+        cursor: col-resize;
+        z-index: 999;
+        position: relative;
     }
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
         color: #FFFFFF;
@@ -703,38 +697,6 @@ def load_yaml_content(model_path: str) -> str:
 def show_sidebar() -> None:
     """Render the sidebar with model selector, YAML viewer, and clear chat button."""
     with st.sidebar:
-        # Sidebar width toggle
-        if "sidebar_expanded" not in st.session_state:
-            st.session_state.sidebar_expanded = False
-
-        is_expanded = st.session_state.sidebar_expanded
-        sidebar_width = 600 if is_expanded else 400
-        arrow = "◀" if is_expanded else "▶"
-
-        # Inject dynamic width CSS
-        st.markdown(
-            f"""
-            <style>
-                [data-testid="stSidebar"] {{
-                    min-width: {sidebar_width}px !important;
-                    max-width: 1000px !important;
-                }}
-            </style>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        # Toggle button right-aligned at top
-        st.markdown(
-            '<div style="display: flex; justify-content: flex-end; margin-bottom: 4px;">',
-            unsafe_allow_html=True,
-        )
-        st.markdown('<div class="sidebar-toggle-btn">', unsafe_allow_html=True)
-        if st.button(arrow, key="sidebar_toggle"):
-            st.session_state.sidebar_expanded = not st.session_state.sidebar_expanded
-            st.rerun()
-        st.markdown('</div></div>', unsafe_allow_html=True)
-
         # Logo + branding header
         st.markdown(
             """
