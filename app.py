@@ -968,8 +968,8 @@ def main():
                 SELECT
                     TABLE_NAME AS "NAME",
                     CASE WHEN TABLE_NAME = 'DAILY_REVENUE' THEN 'Fact Table' ELSE 'Dimension Table' END AS "TYPE",
-                    '🥇 GOLD-LAYER' AS "CLASSIFICATION",
-                    'MENDELSOHN NEIL CHAN' AS "OWNER",
+                    '🥇 Gold Layer' AS "CLASSIFICATION",
+                    'Mendelsohn Chan' AS "OWNER",
                     ROW_COUNT AS "ROWS",
                     ROUND(BYTES / 1024, 1) || 'KB' AS "BYTES"
                 FROM INFORMATION_SCHEMA.TABLES
