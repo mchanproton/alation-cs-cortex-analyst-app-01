@@ -982,6 +982,18 @@ def main():
         except Exception as e:
             st.error(f"Could not fetch table info: {e}")
 
+    with st.expander("Demo Notes", expanded=False):
+        st.markdown(
+            """
+            <ul style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #333; line-height: 1.8;">
+                <li>The date range of this dataset is <strong>2022 – 2024</strong></li>
+                <li>Start the conversation by asking: <em>"What questions can I ask?"</em></li>
+                <li>Follow up with natural language questions about revenue, products, and regions</li>
+            </ul>
+            """,
+            unsafe_allow_html=True,
+        )
+
     if "messages" not in st.session_state:
         reset_session_state()
 
