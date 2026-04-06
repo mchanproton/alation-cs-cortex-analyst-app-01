@@ -700,7 +700,7 @@ def show_sidebar() -> None:
             """
             <div style="
                 font-family: Arial, Helvetica, sans-serif;
-                font-size: 10px; font-weight: 700; color: #FFFFFF;
+                font-size: 12px; font-weight: 700; color: #FFFFFF;
                 letter-spacing: 1.5px; text-transform: uppercase;
                 margin-bottom: 12px;
             ">CONFIGURATION</div>
@@ -728,7 +728,7 @@ def show_sidebar() -> None:
             """
             <div style="
                 font-family: Arial, Helvetica, sans-serif;
-                font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4);
+                font-size: 12px; font-weight: 700; color: #FFFFFF;
                 letter-spacing: 1.5px; text-transform: uppercase;
                 margin-bottom: 12px;
             ">ACTIONS</div>
@@ -747,7 +747,7 @@ def show_sidebar() -> None:
             """
             <div style="
                 font-family: Arial, Helvetica, sans-serif;
-                font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4);
+                font-size: 12px; font-weight: 700; color: #FFFFFF;
                 letter-spacing: 1.5px; text-transform: uppercase;
                 margin-bottom: 12px;
             ">CONNECTION</div>
