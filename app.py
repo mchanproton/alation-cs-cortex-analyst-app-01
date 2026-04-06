@@ -915,7 +915,7 @@ def main():
                         font-family: Arial, Helvetica, sans-serif;
                         font-size: 14px;
                         display: flex; align-items: center; gap: 6px;
-                        text-decoration: none;
+                        text-decoration: underline;
                     ">&#128279; Source URL</a>
                 </div>
             </div>
