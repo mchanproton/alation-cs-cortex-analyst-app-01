@@ -128,7 +128,7 @@ CUSTOM_CSS = """
     [data-testid="stSidebar"] hr {
         border-color: rgba(255,255,255,0.15);
     }
-    /* Sidebar code blocks */
+    /* Sidebar inline code blocks (account details etc.) */
     [data-testid="stSidebar"] code {
         background-color: rgba(0,0,0,0.3) !important;
         color: #29B5E8 !important;
@@ -138,6 +138,21 @@ CUSTOM_CSS = """
     [data-testid="stSidebar"] pre {
         background-color: rgba(0,0,0,0.3) !important;
         border-radius: 6px;
+    }
+    /* YAML viewer — GitHub Light theme */
+    .yaml-viewer {
+        background-color: #FFFFFF !important;
+        color: #24292e !important;
+        font-family: Consolas, 'Courier New', monospace !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        padding: 16px !important;
+        border-radius: 8px !important;
+        border: 1px solid #e1e4e8 !important;
+        max-height: 500px !important;
+        overflow-y: auto !important;
+        white-space: pre !important;
+        tab-size: 2 !important;
     }
 
     /* Snowflake accent on analyst chat bubbles */
@@ -720,7 +735,20 @@ def show_sidebar() -> None:
                     "selected_semantic_model_path", AVAILABLE_SEMANTIC_MODELS[0]
                 )
             )
-            st.code(yaml_content, language="yaml")
+            import html as html_mod
+            escaped = html_mod.escape(yaml_content)
+            # Apply basic YAML syntax highlighting (GitHub Light colors)
+            import re as re_mod
+            # Highlight comments
+            escaped = re_mod.sub(r'(#.*)', r'<span style="color:#6a737d">\1</span>', escaped)
+            # Highlight keys (word followed by colon)
+            escaped = re_mod.sub(r'^(\s*)([\w_-]+)(:)', r'\1<span style="color:#005cc5">\2</span>\3', escaped, flags=re.MULTILINE)
+            # Highlight strings in quotes
+            escaped = re_mod.sub(r'(&quot;.*?&quot;|&#x27;.*?&#x27;)', r'<span style="color:#032f62">\1</span>', escaped)
+            # Highlight booleans and numbers
+            escaped = re_mod.sub(r':\s+(true|false)\b', r': <span style="color:#d73a49">\1</span>', escaped)
+            escaped = re_mod.sub(r':\s+(\d+\.?\d*)\b', r': <span style="color:#005cc5">\1</span>', escaped)
+            st.markdown(f'<pre class="yaml-viewer">{escaped}</pre>', unsafe_allow_html=True)
 
         st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
 
