@@ -68,7 +68,7 @@ CUSTOM_CSS = """
     /* Sidebar — modern dark theme with resize handle */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0D1B2A 0%, #11567F 100%);
-        min-width: 550px;
+        min-width: 500px;
         max-width: 1000px;
         resize: horizontal;
         overflow: auto;
@@ -908,6 +908,15 @@ def main():
                         font-size: 14px;
                         display: flex; align-items: center; gap: 6px;
                     ">&#128100; Snowflake Developer Community</span>
+                    <a href="https://www.snowflake.com/en/developers/guides/getting-started-with-cortex-analyst/"
+                       target="_blank"
+                       style="
+                        color: #FFFFFF;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 14px;
+                        display: flex; align-items: center; gap: 6px;
+                        text-decoration: none;
+                    ">&#128279; Source URL</a>
                 </div>
             </div>
         </div>
