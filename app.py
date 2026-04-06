@@ -65,6 +65,11 @@ CUSTOM_CSS = """
         font-family: Arial, Helvetica, sans-serif !important;
     }
 
+    /* Hide native Streamlit sidebar collapse button */
+    [data-testid="stSidebar"] button[kind="header"] ,
+    [data-testid="collapsedControl"] {
+        display: none !important;
+    }
     /* Sidebar — modern dark theme */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0D1B2A 0%, #11567F 100%);
@@ -85,9 +90,6 @@ CUSTOM_CSS = """
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        position: absolute !important;
-        right: 12px !important;
-        top: 16px !important;
     }
     .sidebar-toggle-btn button:hover {
         background-color: rgba(41,181,232,0.4) !important;
@@ -722,14 +724,16 @@ def show_sidebar() -> None:
             unsafe_allow_html=True,
         )
 
-        # Toggle button in top-right corner
-        col1, col2 = st.columns([10, 1])
-        with col2:
-            st.markdown('<div class="sidebar-toggle-btn">', unsafe_allow_html=True)
-            if st.button(arrow, key="sidebar_toggle"):
-                st.session_state.sidebar_expanded = not st.session_state.sidebar_expanded
-                st.rerun()
-            st.markdown('</div>', unsafe_allow_html=True)
+        # Toggle button right-aligned at top
+        st.markdown(
+            '<div style="display: flex; justify-content: flex-end; margin-bottom: 4px;">',
+            unsafe_allow_html=True,
+        )
+        st.markdown('<div class="sidebar-toggle-btn">', unsafe_allow_html=True)
+        if st.button(arrow, key="sidebar_toggle"):
+            st.session_state.sidebar_expanded = not st.session_state.sidebar_expanded
+            st.rerun()
+        st.markdown('</div></div>', unsafe_allow_html=True)
 
         # Logo + branding header
         st.markdown(
